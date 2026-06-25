@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}
+Add Company
+{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-md-6">
+
+        <div class="card shadow">
+
+            <div class="card-header bg-success text-white">
+                <h3 class="mb-0">Add Company</h3>
+            </div>
+
+            <div class="card-body">
+
+                <form action="/save_company" method="POST">
+
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Company Name
+                        </label>
+
+                        <input type="text"
+                               name="company_name"
+                               class="form-control"
+                               required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Required CGPA
+                        </label>
+
+                        <input type="number"
+                               step="0.01"
+                               name="required_cgpa"
+                               class="form-control"
+                               required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Allowed Backlogs
+                        </label>
+
+                        <input type="number"
+                               name="allowed_backlogs"
+                               class="form-control"
+                               required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Job Role
+                        </label>
+
+                        <input type="text"
+                               name="job_role"
+                               class="form-control"
+                               required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Package Offered (LPA)
+                        </label>
+
+                        <input type="number"
+                               step="0.01"
+                               name="package_offered"
+                               class="form-control"
+                               required>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit"
+                                class="btn btn-success">
+                            Save Company
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

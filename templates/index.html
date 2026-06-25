@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<h1 class="mb-4">
+    Campus Placement Management System
+</h1>
+
+<div class="row">
+
+    <div class="col-md-3 mb-3">
+        <div class="card shadow">
+            <div class="card-body text-center">
+                <h5>Student Management</h5>
+
+                <a href="/register"
+                   class="btn btn-primary">
+                    Register Student
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-3">
+        <div class="card shadow">
+            <div class="card-body text-center">
+                <h5>View Students</h5>
+
+                <a href="/students"
+                   class="btn btn-success">
+                    Open
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-3">
+        <div class="card shadow">
+            <div class="card-body text-center">
+                <h5>Add Company</h5>
+
+                <a href="/add_company"
+                   class="btn btn-warning">
+                    Open
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-3">
+        <div class="card shadow">
+            <div class="card-body text-center">
+                <h5>Dashboard</h5>
+
+                <a href="/dashboard"
+                   class="btn btn-dark">
+                    Open
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

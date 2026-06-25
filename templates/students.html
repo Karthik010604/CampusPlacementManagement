@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}
+Students
+{% endblock %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>Student List</h1>
+
+    <a href="/register" class="btn btn-primary">
+        Add New Student
+    </a>
+</div>
+
+<form action="/search_student" method="GET" class="mb-3">
+
+    <div class="input-group">
+
+        <input
+            type="text"
+            name="rollno"
+            class="form-control"
+            placeholder="Search by Roll Number">
+
+        <button
+            type="submit"
+            class="btn btn-primary">
+            Search
+        </button>
+
+    </div>
+
+</form>
+
+<table class="table table-bordered table-striped table-hover">
+
+    <thead class="table-dark">
+
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Roll No</th>
+            <th>Branch</th>
+            <th>CGPA</th>
+            <th>Backlogs</th>
+            <th>Email</th>
+            <th>Eligibility</th>
+            <th>Applications</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+    {% for student in students %}
+
+        <tr>
+
+            <td>{{ student[0] }}</td>
+            <td>{{ student[1] }}</td>
+            <td>{{ student[2] }}</td>
+            <td>{{ student[3] }}</td>
+            <td>{{ student[4] }}</td>
+            <td>{{ student[5] }}</td>
+            <td>{{ student[6] }}</td>
+
+            <td>
+                <a href="/eligibility/{{ student[0] }}"
+                   class="btn btn-primary btn-sm">
+                    Check
+                </a>
+            </td>
+
+            <td>
+                <a href="/applications/{{ student[0] }}"
+                   class="btn btn-success btn-sm">
+                    View
+                </a>
+            </td>
+
+        </tr>
+
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}
+Eligibility
+{% endblock %}
+
+{% block content %}
+
+<h1>Eligibility Result</h1>
+
+<div class="card mb-4">
+    <div class="card-body">
+
+        <h4>Student Details</h4>
+
+        <p><b>Name:</b> {{ student[1] }}</p>
+        <p><b>Roll No:</b> {{ student[2] }}</p>
+        <p><b>CGPA:</b> {{ student[4] }}</p>
+        <p><b>Backlogs:</b> {{ student[5] }}</p>
+
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+
+        <h4>Eligible Companies</h4>
+
+        {% if companies %}
+
+        <ul class="list-group">
+
+            {% for company in companies %}
+
+            <li class="list-group-item">
+
+                {{ company[1] }}
+                -
+                {{ company[4] }}
+                -
+                {{ company[5] }} LPA
+
+                <a href="/apply/{{ student[0] }}/{{ company[0] }}"
+                   class="btn btn-success btn-sm float-end">
+                    Apply
+                </a>
+
+            </li>
+
+            {% endfor %}
+
+        </ul>
+
+        {% else %}
+
+        <p>No Eligible Companies Found.</p>
+
+        {% endif %}
+
+    </div>
+</div>
+
+{% endblock %}

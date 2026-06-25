@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}
+Companies
+{% endblock %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+
+    <h1>Company List</h1>
+
+    <a href="/add_company" class="btn btn-success">
+        Add Company
+    </a>
+
+</div>
+
+<form action="/search_company" method="GET" class="mb-3">
+
+    <div class="input-group">
+
+        <input
+            type="text"
+            name="company_name"
+            class="form-control"
+            placeholder="Search Company">
+
+        <button
+            type="submit"
+            class="btn btn-primary">
+            Search
+        </button>
+
+    </div>
+
+</form>
+
+<table class="table table-bordered table-striped table-hover">
+
+    <thead class="table-dark">
+
+        <tr>
+            <th>ID</th>
+            <th>Company Name</th>
+            <th>Required CGPA</th>
+            <th>Allowed Backlogs</th>
+            <th>Job Role</th>
+            <th>Package (LPA)</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+    {% for company in companies %}
+
+        <tr>
+
+            <td>{{ company[0] }}</td>
+            <td>{{ company[1] }}</td>
+            <td>{{ company[2] }}</td>
+            <td>{{ company[3] }}</td>
+            <td>{{ company[4] }}</td>
+            <td>{{ company[5] }}</td>
+
+        </tr>
+
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}
